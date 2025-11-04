@@ -129,7 +129,7 @@ jobs:
     env:
       MATRIX_JOBS: 5
       GITHUB_PR_NUMBER: ${{ github.event.number }}
-      RNG_SEED: ${{ github.event.inputs.matrix_rng_seed }}
+      RNG_SEED: pr_3476
     steps:
     - uses: actions/checkout@v4
       with:

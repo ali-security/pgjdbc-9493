@@ -29,7 +29,11 @@ ide {
 
 val String.v: String get() = rootProject.extra["$this.version"] as String
 
-val buildVersion = "pgjdbc".v + releaseParams.snapshotSuffix
+val buildVersion = if (project.hasProperty("skipSnapshot") || System.getenv("SKIP_SNAPSHOT") == "true") {
+    "pgjdbc".v
+} else {
+    "pgjdbc".v + releaseParams.snapshotSuffix
+}
 
 println("Building pgjdbc $buildVersion")
 
